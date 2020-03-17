@@ -5,12 +5,14 @@
 #include "buzzer.h"
 
 void main(void) 
-{  
+{
+  // Voila  my project bobeep!!!!
   configureClocks();
-  switch_init();
-  led_init();
+  switch_init(); // switches 
+  led_init(); // lights~
+  buzzer_init(); // sounds(:
 
-  enableWDTInterrupts();
+  enableWDTInterrupts(); // handling interruptions
 
   or_sr(0x18);  // CPU off, GIE on
 } 
