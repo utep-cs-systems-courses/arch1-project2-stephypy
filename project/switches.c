@@ -39,23 +39,25 @@ switch_interrupt_handler()
    sw3_state_down = (p2val & SW3) ? 0 : 1; /* 0 when SW3 is up */
    sw4_state_down = (p2val & SW4) ? 0 : 1; /* 0 when SW4 is up */
 
-   switch_state_changed = 1;
-   
    // Determine the state for the state machine
-   if(sw1_state_down) {
-     curr_state = 0;
-     state_advance();
+   if(sw1_state_down) {          /* SW1 = Play Song */
+     curr_state = 0;             // Selects current state
+     switch_state_changed = 1;   // Acknowledges change in state
+     state_advance();            // Advances to the state selected
    }
-   if(sw2_state_down) {
-     curr_state = 1;
-     state_advance();
+   if(sw2_state_down) {          /* SW2 = Dim Red to Bright Red */
+     curr_state = 1;             // Selects current state
+     switch_state_changed = 1;   // Acknowledges change in state
+     state_advance();            // Advances to the state selected
    }
-   if(sw3_state_down) {
-     curr_state = 2;
-     state_advance();
+   if(sw3_state_down) {          /* SW3 = Toggle Lights */
+     curr_state = 2;             // Selects current state
+     switch_state_changed = 1;   // Acknowledges change in state
+     state_advance();            // Advances to the state selected
    }
-   if(sw4_state_down) {
-     curr_state = 3;
-     state_advance();
+   if(sw4_state_down) {          /* SW4 = Bright Green to Dim Green */
+     curr_state = 3;             // Selects current state
+     switch_state_changed = 1;   // Acknowledges change in state
+     state_advance();            // Advances to the state selected
    }
 }
