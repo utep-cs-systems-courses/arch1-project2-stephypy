@@ -6,11 +6,18 @@
 
 void main(void) 
 {
-  // Voila  my project bobeep!!!!
+  /* Voila my project bobeep!!!! */
+
   configureClocks();
-  switch_init(); // switches 
-  led_init(); // lights~
-  buzzer_init(); // sounds(:
+
+  // Switch Setup
+  switch_init();
+
+  // LED Setup
+  led_init();
+
+  // Buzzer Setup
+  buzzer_init(); 
 
   enableWDTInterrupts(); // handling interruptions
 
