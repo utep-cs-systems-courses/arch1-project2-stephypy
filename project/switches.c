@@ -54,6 +54,7 @@ switch_interrupt_handler()
      curr_state = 2;             // Selects current state
      switch_state_changed = 1;   // Acknowledges change in state
      state_advance();            // Advances to the state selected
+     led_update();               /* Question: I know this updates the LED but isn't this line redundant since I am already calling led_update inside state_advance? However, I did notice an improvement when writing this line so that's why I am updating the LED again */
    }
    if(sw4_state_down) {          /* SW4 = Bright Green to Dim Green */
      curr_state = 3;             // Selects current state

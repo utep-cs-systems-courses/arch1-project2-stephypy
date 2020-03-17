@@ -7,6 +7,8 @@
 char changed = 0;
 char curr_state = -1; //Prior to attending a state
 
+char red_status, toggle_status, green_status;
+
 /* Allows to Change the State  */
 void state_advance()	
 {
@@ -23,6 +25,8 @@ void state_advance()
 
   /* Toggle Between Red and Green */
   case 2:
+    if(toggle_status == 1) toggle_status = 0;
+    else toggle_status = 1;
     led_update();
 
   /* Bright Green To Dim Green */ 

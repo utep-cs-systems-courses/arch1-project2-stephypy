@@ -9,10 +9,16 @@
 
 extern unsigned char red_on, green_on;
 
-void led_init();		/* initialize LEDs */
-void led_update();		/* update leds */
+// Initialize LEDs
+void led_init();
+
+// Update LEDs
+void led_update();
 
 // these are boolean flags
 extern unsigned char led_changed, green_led_state, red_led_state;
+
+// For states 2, 3, 4 respectively
+extern char red_status, toggle_status, green_status;
 
 #endif
