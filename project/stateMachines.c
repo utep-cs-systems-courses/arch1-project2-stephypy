@@ -1,9 +1,13 @@
 #include <msp430.h>
 #include "stateMachines.h"
 #include "led.h"
+#include "switches.h"
+#include "song.h"
 
-static int red_on;
-static int green_on;
+char color_state = 0;
+char changed = 0;
+char curr_state = 0;
+char state_1, state_2, state_3, state_4;
 
 char toggle_red()		/* always toggle! */
 {
@@ -37,21 +41,24 @@ void state_advance()		/* change the state */
   /* Determine the curr state */
   switch(curr_state) {
 
-  /* Play Flamingo */
+  /* Play Bubblegum */
   case 0:
-    printf("ok");
+    if(switch_state_changed) play_bubblegum();
 
-  /* Twinkling Lights */
+  /* Dim Red To Bright Red */
   case 1:
-    printf("ok");
+    color_state = 1;
+    led_update();
 
   /* Toggle Between Red and Green */
   case 2:
-    printf("ok");
+    // changed = 1;
+    led_update();
 
-  /* Dimming Lights */ 
+  /* Bright Green To Dim Green */ 
   case 3:
-    printf("ok");
+    color_state = 3;
+    led_update();
   }
 }
 

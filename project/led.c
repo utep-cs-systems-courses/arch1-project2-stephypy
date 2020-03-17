@@ -2,6 +2,10 @@
 #include "led.h"
 #include "switches.h"
 
+unsigned char red_on = 0;
+unsigned char green_on = 0;
+unsigned char led_changed = 0;
+
 void led_init()
 {
   P1DIR |= LEDS;		// bits attached to leds are output
@@ -13,11 +17,23 @@ void led_update(){
   if (switch_state_changed) {
     char ledFlags = 0; /* by default, no LEDs on */
 
-    ledFlags |= sw2_state_down ? LED_GREEN : 0;
-    ledFlags |= sw2_state_down ? 0 : LED_RED;
+    if(sw2_state_down) {
+      ledFlags |= sw2_state_down ? LED_RED : 0;
+      ledFlags |= sw2_state_down ? 0 : LED_GREEN;
+    }
 
-    P1OUT &= (0xff - LEDS) | ledFlags; // clear bits for off leds
-    P1OUT |= ledFlags;         // set bits for on leds
+    if(sw3_state_down) {
+      ledFlags |= sw3_state_down ? LED_GREEN : 0;
+      ledFlags |= sw3_state_down ? 0 : LED_GREEN;
+    }
+
+    if(sw4_state_down) {
+      ledFlags |= sw4_state_down ? LED_RED : 0;
+      ledFlags |= sw4_state_down ? 0 : LED_GREEN;
+    }
+    
+   P1OUT &= (0xff - LEDS) | ledFlags; // clear bits for off leds
+   P1OUT |= ledFlags; // set bits for on leds
   }
   switch_state_changed = 0;
 }

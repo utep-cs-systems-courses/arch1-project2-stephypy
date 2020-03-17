@@ -1,10 +1,13 @@
 #ifndef stateMachine_included
 #define stateMachine_included
 
+// Current state of the MSP430
 extern char curr_state;
 
-// Four different states for the four different buttons
-extern char state_1, state_2, state_3, state_4;
+// Will represent the initial LED color depending on the state
+extern char color_state;
+
+extern char changed;
 
 void state_advance();
 
