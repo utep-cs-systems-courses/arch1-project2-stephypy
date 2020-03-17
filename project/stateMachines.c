@@ -32,19 +32,27 @@ char toggle_green()	/* only toggle green if red is on!  */
 }
 
 
-void state_advance()		/* alternate between toggling red & green */
+void state_advance()		/* change the state */
 {
-  char changed = 0;  
+  /* Determine the curr state */
+  switch(curr_state) {
 
-  static enum {R=0, G=1} color = G;
-  switch (color) {
-  case R: changed = toggle_red(); color = G; break;
-  case G: changed = toggle_green(); color = R; break;
+  /* Play Flamingo */
+  case 0:
+    printf("ok");
+
+  /* Twinkling Lights */
+  case 1:
+    printf("ok");
+
+  /* Toggle Between Red and Green */
+  case 2:
+    printf("ok");
+
+  /* Dimming Lights */ 
+  case 3:
+    printf("ok");
   }
-
-  int led_changed;
-  led_changed = changed;
-  led_update();
 }
 
 
