@@ -2,7 +2,7 @@
 #include "switches.h"
 #include "led.h"
 
-char switch_state_down_s1, switch_state_down_s2, switch_state_down_s3, switch_state_down_s4;
+char sw1_state_down, sw2_state_down, sw3_state_down, sw4_state_down;
 char switch_state_changed; /* effectively boolean */
 
 static char 
@@ -23,17 +23,25 @@ switch_init()			/* setup switch */
   P2OUT |= SWITCHES;		/* pull-ups for switches */
   P2DIR &= ~SWITCHES;		/* set switches' bits for input */
   switch_update_interrupt_sense();
-  led_update();
+  //led_update();
 }
 
 void
 switch_interrupt_handler()
 {
   char p2val = switch_update_interrupt_sense();
-   switch_state_down_s1 = (p2val & SW1) ? 0 : 1; /* 0 when SW1 is up */
-   switch_state_down_s2 = (p2val & SW2) ? 0 : 1;
-   switch_state_down_s3 = (p2val & SW3) ? 0 : 1;
-   switch_state_down_s4 = (p2val & SW4) ? 0 : 1;
+
+  // Determine which button is pressed down
+   sw1_state_down = (p2val & SW1) ? 0 : 1; /* 0 when SW1 is up */
+   sw2_state_down = (p2val & SW2) ? 0 : 1;
+   sw3_state_down = (p2val & SW3) ? 0 : 1;
+   sw4_state_down = (p2val & SW4) ? 0 : 1;
+
    switch_state_changed = 1;
-   led_update();
+   //led_update();
+
+   //   if(sw1_state_down) //do something
+   if(sw2_state_down) led_update(); //do something
+     // if(sw3_state_down) //do something
+	  // if(sw4_state_down) //do something
 }

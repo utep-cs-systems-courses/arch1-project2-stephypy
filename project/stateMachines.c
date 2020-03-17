@@ -2,10 +2,12 @@
 #include "stateMachines.h"
 #include "led.h"
 
+static int red_on;
+static int green_on;
+
 char toggle_red()		/* always toggle! */
 {
   static char state = 0;
-
   switch (state) {
   case 0:
     red_on = 1;
@@ -40,6 +42,7 @@ void state_advance()		/* alternate between toggling red & green */
   case G: changed = toggle_green(); color = R; break;
   }
 
+  int led_changed;
   led_changed = changed;
   led_update();
 }
