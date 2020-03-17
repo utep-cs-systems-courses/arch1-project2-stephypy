@@ -23,7 +23,7 @@ switch_init()			/* setup switch */
   P2OUT |= SWITCHES;		/* pull-ups for switches */
   P2DIR &= ~SWITCHES;		/* set switches' bits for input */
   switch_update_interrupt_sense();
-  //led_update();
+  led_update();
 }
 
 void
@@ -33,15 +33,15 @@ switch_interrupt_handler()
 
   // Determine which button is pressed down
    sw1_state_down = (p2val & SW1) ? 0 : 1; /* 0 when SW1 is up */
-   sw2_state_down = (p2val & SW2) ? 0 : 1;
-   sw3_state_down = (p2val & SW3) ? 0 : 1;
-   sw4_state_down = (p2val & SW4) ? 0 : 1;
+   sw2_state_down = (p2val & SW2) ? 0 : 1; /* 0 when SW2 is up */
+   sw3_state_down = (p2val & SW3) ? 0 : 1; /* 0 when SW3 is up */
+   sw4_state_down = (p2val & SW4) ? 0 : 1; /* 0 when SW4 is up */
+
+   // Determine the state for the state machine
+   if(sw1_state_down) curr_state = 0;
+   if(sw2_state_down) led_update(); curr_state = 1;
+   if(sw3_state_down) curr_state = 2;
+   if(sw4_state_down) curr_state = 3;
 
    switch_state_changed = 1;
-   //led_update();
-
-   //   if(sw1_state_down) //do something
-   if(sw2_state_down) led_update(); //do something
-     // if(sw3_state_down) //do something
-	  // if(sw4_state_down) //do something
 }
