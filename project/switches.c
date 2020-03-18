@@ -42,25 +42,23 @@ switch_interrupt_handler()
    // Determine the state for the state machine
    // STATE 1
    if(sw1_state_down) {          /* SW1 = Play Song */
-     switch_state_changed = 1;   // Acknowledges change in state
      state = 1;                  // Define state number
    }
 
    // STATE 2
-   if(sw2_state_down) {          /* SW2 = Dim Red to Bright Red */
-     switch_state_changed = 1;   // Acknowledges change in state
+   if(sw2_state_down) {          /* SW2 = Dim Red */
      state = 2;                  // Define state number
    }
 
    // STATE 3
    if(sw3_state_down) {          /* SW3 = Red Plus Green Toggle Lights */
-     switch_state_changed = 1;   // Acknowledges change in state
      state = 3;                  // Define state number
    }
 
    /// STATE 4
-   if(sw4_state_down) {          /* SW4 = Bright Green to Dim Green */
-     switch_state_changed = 1;   // Acknowledges change in state
+   if(sw4_state_down) {          /* SW4 = Dim Green */
      state = 4;                  // Define state number
    }
+
+   switch_state_changed = 1;   // Acknowledges change in state
 }
