@@ -1,12 +1,16 @@
 #ifndef stateMachine_included
 #define stateMachine_included
 
-// Current state of the MSP430
-extern char curr_state;
+/* State 1 */
+void play_song(); // Plays bubblegum song
 
-extern char changed;
+/* State 2 */
+void red_blink(); // Red goes from dim to bright and repeats
 
-// Allows the changing of states
-void state_advance();
+/* State 3 */
+void red_plus_green(); // Every button press leads to red->green->(red and green) then repeat
+
+/* State 4 */
+void green_blink(); // Green goes from dim to bright and repeats
 
 #endif // included

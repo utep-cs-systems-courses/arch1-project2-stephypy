@@ -1,39 +1,54 @@
 #include <msp430.h>
 #include "stateMachines.h"
 #include "led.h"
-#include "switches.h"
 #include "song.h"
 
-char changed = 0;
-char curr_state = -1; //Prior to attending a state
-
-char red_status, toggle_status, green_status;
-
-/* Allows to Change the State  */
-void state_advance()	
+/* State 1 */
+void play_song()
 {
-  /* Determine the curr state */
-  switch(curr_state) {
+  play_bubblegum();
+}
 
-  /* Play Bubblegum */
+/* State 2 */
+void red_blink()
+{
+  static char curr_state_two = 0;
+}
+
+/* State 3 */
+void red_plus_green()
+{
+  // Set the start
+  static char curr_state_three = 0;
+
+  // Toggling; light changes with each button press
+  switch(curr_state_three) {
+
+  // Lit up the red light
   case 0:
-    if(switch_state_changed) play_bubblegum();
-
-  /* Dim Red To Bright Red */
+    red_on = 1;
+    green_on = 0;
+    curr_state_three = 1;
+    break;
+    
+  // Lit up green light
   case 1:
-    led_update();
+    red_on = 0;
+    green_on = 1;
+    curr_state_three = 2;
+    break;
 
-  /* Toggle Between Red and Green */
+  // Lit up both lights, then repeat
   case 2:
-    if(toggle_status == 1) toggle_status = 0;
-    else toggle_status = 1;
-    led_update();
-
-  /* Bright Green To Dim Green */ 
-  case 3:
-    led_update();
+    red_on = 1;
+    green_on = 1;
+    curr_state_three = 0;
+    break;
   }
 }
 
-
-
+/* State 4 */
+void green_blink()
+{
+  static char curr_state_four = 0;
+}
