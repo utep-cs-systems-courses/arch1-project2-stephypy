@@ -7,22 +7,30 @@
 char state = 0;
 char led_state = 0;
 
+/* Activating selected state from switches.c */
 void state_advance()
 {
   switch(state) {
+  // State 1: Playing Bubblegum
   case 1:
     play_song();
     break;
+    
+  // State 2: Red Blink
   case 2:
     led_changed = red_blink();
-    led_state = 1;
+    led_state = 1; 
     led_update();
     break;
+
+  // State 3: Red Plus Green
   case 3:
     led_changed = red_plus_green();
     led_state = 2;
     led_update();
     break;
+
+  // State 4: Green Blink
   case 4:
     led_changed = green_blink();
     led_state = 3;
@@ -34,6 +42,7 @@ void state_advance()
 /* State 1 */
 void play_song()
 {
+  // play the song when selected
   if(switch_state_changed) {
     play_bubblegum();
   }
@@ -43,9 +52,11 @@ void play_song()
 /* State 2 */
 char red_blink()
 {
+  // Set Start
   static char curr_state_two = 0;
 
   switch (led_state) {
+    
   case 0:
    red_on = 1;
    green_on = 0;
@@ -60,7 +71,6 @@ char red_blink()
 }
   return 1;
 }
-
 
 /* State 3 */
 char red_plus_green()

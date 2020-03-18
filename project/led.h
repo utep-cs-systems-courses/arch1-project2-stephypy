@@ -7,6 +7,7 @@
 #define LED_GREEN BIT6             // P1.6
 #define LEDS (BIT0 | BIT6)
 
+// Determine whether the lights are lit or not
 extern unsigned char red_on, green_on;
 
 // Initialize LEDs
@@ -16,5 +17,5 @@ void led_init();
 void led_update();
 
 // these are boolean flags
-extern unsigned char led_changed, led_case;
+extern unsigned char led_changed;
 #endif
