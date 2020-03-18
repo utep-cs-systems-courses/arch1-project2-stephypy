@@ -15,37 +15,11 @@ void led_init()
 }
 
 // Update LEDs
-void led_update(){
-  switch(led_state) {
-  //From red_blink()
-  case 1:
-    {
-    char ledFlags = redVal[red_on];
-
-    P1OUT &= (0xff^LEDS) | ledFlags; // clear bit for off leds
-    P1OUT |= ledFlags;     // set bit for on leds
-    break;
-    }
-
-  //From red_plus_green()
-  case 2:
-    {
-    char ledFlags = redVal[red_on] | greenVal[green_on];
-
-    P1OUT &= (0xff^LEDS) | ledFlags; // clear bit for off leds
-    P1OUT |= ledFlags;     // set bit for on leds
-    break;
-    }
-
-  //From green_blink()
-  case 3:
-    {
-    char ledFlags = greenVal[green_on];
-
-    P1OUT &= (0xff^LEDS) | ledFlags; // clear bit for off leds
-    P1OUT |= ledFlags;     // set bit for on leds
-    break;
-    }
-  }
+void led_update()
+{
+  char ledFlags = redVal[red_on] | greenVal[green_on];
+  P1OUT &= (0xff^LEDS) | ledFlags; // clear bit for off leds
+  P1OUT |= ledFlags;     // set bit for on leds
+  
   switch_state_changed = 0; //end of state
 }
