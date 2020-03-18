@@ -8,16 +8,13 @@ void state_advance();
 void play_song(); // Plays bubblegum song
 
 /* State 2 */
-char red_blink(); // Red goes from dim to bright and repeats
-
-void bright_red(); 
-void dim_red();
+void dim_red(); // Shows a dim red light
 
 /* State 3 */
-char red_plus_green(); // Series of lights as red->green->both on->both off->repeat
+void red_plus_green(); // Series of lights as red->green->both on->both off->repeat
 
 /* State 4 */
-char green_blink(); // Green goes from dim to bright and repeats
+void dim_green(); // Shows a dim green light
 
 extern char state; // Keeps record of the state selected by pressing the corresponding button
 
