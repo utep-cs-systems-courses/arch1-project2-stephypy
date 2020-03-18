@@ -40,25 +40,29 @@ switch_interrupt_handler()
    sw4_state_down = (p2val & SW4) ? 0 : 1; /* 0 when SW4 is up */
 
    // Determine the state for the state machine
+   // STATE 1
    if(sw1_state_down) {          /* SW1 = Play Song */
-     curr_state = 0;             // Selects current state
      switch_state_changed = 1;   // Acknowledges change in state
-     state_advance();            // Advances to the state selected
+     state = 1;
+     //play_song();                // Plays song (found in state machine)
    }
+
+   // STATE 2
    if(sw2_state_down) {          /* SW2 = Dim Red to Bright Red */
-     curr_state = 1;             // Selects current state
      switch_state_changed = 1;   // Acknowledges change in state
-     state_advance();            // Advances to the state selected
+     state = 2;
    }
-   if(sw3_state_down) {          /* SW3 = Toggle Lights */
-     curr_state = 2;             // Selects current state
+
+   // STATE 3
+   if(sw3_state_down) {          /* SW3 = Red Plus Green Toggle Lights */
      switch_state_changed = 1;   // Acknowledges change in state
-     state_advance();            // Advances to the state selected
-     led_update();               /* Question: I know this updates the LED but isn't this line redundant since I am already calling led_update inside state_advance? However, I did notice an improvement when writing this line so that's why I am updating the LED again */
+     state = 3;
+     //led_update();               // Activates LEDs
    }
+
+   /// STATE 4
    if(sw4_state_down) {          /* SW4 = Bright Green to Dim Green */
-     curr_state = 3;             // Selects current state
      switch_state_changed = 1;   // Acknowledges change in state
-     state_advance();            // Advances to the state selected
+     state = 4;
    }
 }
