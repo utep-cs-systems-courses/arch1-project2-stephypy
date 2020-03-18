@@ -1,5 +1,5 @@
 #ifndef led_included
-#define  led_included
+#define led_included
 
 #include <msp430.h>
 
@@ -16,6 +16,4 @@ void led_init();
 // Update LEDs
 void led_update();
 
-// these are boolean flags
-extern unsigned char led_changed;
 #endif
