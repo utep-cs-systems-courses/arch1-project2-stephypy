@@ -1,4 +1,4 @@
-Project 2: Blinky Buzzy Toy (aka bobeep)
+Project 2: Blinky Buzzy Toy (aka bobeep) <br>
 Author: Stephanie Galvan
 ====================
 # Description:
