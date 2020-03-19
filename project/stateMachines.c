@@ -10,7 +10,7 @@ char state = 0;
 void state_advance()
 {
   switch(state) {
-  // State 1: Playing Bubblegum
+  // State 1: Playing Fallen Down
   /*
     State 1 functions are found in file song.c
   */
@@ -19,9 +19,7 @@ void state_advance()
   case 2:
     // Restart the values for state 1
     note_counter = 0;
-    curr_intro = 0;
     curr_verse = 0;
-    curr_chorus = 0;
 
     // Call the function corresponding to state 2
     dim_red(); 
@@ -32,9 +30,7 @@ void state_advance()
   case 3:
     // Restart the values for state 1
     note_counter = 0;
-    curr_intro = 0;
     curr_verse = 0;
-    curr_chorus = 0;
 
     // Call the function corresponding to state 3
     red_plus_green();
@@ -42,29 +38,26 @@ void state_advance()
     break;
 
   // State 4: Green Dim
+  /*
+    State 4 functions are found in file assembly.s
+  */
+    
+  /*
   case 4:
     // Restart the values for state 1
     note_counter = 0;
-    curr_intro = 0;
     curr_verse = 0;
-    curr_chorus = 0;
 
     // Call the function corresponding to state 4
     dim_green();
     led_update();
     break;
+  */
   }
 }
 
 /* State 1 
-void play_song()
-{
-  // Play the song when selected
-  if(switch_state_changed) {
-    play_bubblegum();
-  }
-  switch_state_changed = 0;
-}
+** Found in file song.c
 */
 
 /* State 2 */
@@ -144,15 +137,12 @@ void red_plus_green()
     green_on = 0;
     curr_state_three = 0; // Repeat
     break;
-    /* Question: Instead of the statements above, I had state=2; because I tried to do a series of
-    lights, dim a red light, then repeat; however I was unable to do that. WHat would happen is 
-    that it would do the series, dim, then blink indefinetely. My guess is that it could not leave
-    the dimming function. Every time I press button 3 again it would just keep on blinking so my
-    idea only worked once. Good news, I was able to do a series of lights so that's good!! */
   }
 }
 
 /* State 4 */
+/* C code for State 4; Go to assembly.s for state 4 code */
+/*
 void dim_green()
 {
   // Set Start
@@ -192,3 +182,4 @@ void dim_green()
    break;
   }
 }
+*/

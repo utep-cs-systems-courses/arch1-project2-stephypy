@@ -1,26 +1,23 @@
 #include <msp430.h>
 #include "buzzer.h"
 
-#define D5 587.33
-#define D6 1174.66
-#define E6 1318.51
-#define G6 1567.98
+#define F 1351.37 //2702.74 // F#5
+#define CS 1911.13 //3607.7  // C#5
 
-#define A6 1760
-#define B6 1975.53
-#define C6 1046.5
+#define A 2146.16 // A#5
+#define A5 2272.72
+#define B5 2024.76
+#define D 3214.14 // D#5
+#define D5 3405.24
+#define E5 3033.75
+#define G5 2551.05
 
-extern int curr_intro;
-extern int intro_beats[];
+#define BEAT 68
 
 extern int curr_verse;
-extern int verse_beats[];
-
-extern int curr_chorus;
-extern int chorus_beats[];
 
 extern int note_counter;
 extern char curr_state_one;
 
 void song_advance();
-void play_bubblegum();
+void play_fallen_down();

@@ -57,6 +57,8 @@ switch_interrupt_handler()
 
    /// STATE 4
    if(sw4_state_down) {          /* SW4 = Dim Green */
+     note_counter = 0;
+     curr_verse = 0;             // Restart the values for state 1
      state = 4;                  // Define state number
    }
 
