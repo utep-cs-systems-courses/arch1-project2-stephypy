@@ -3,6 +3,7 @@
 #include "led.h"
 #include "song.h"
 #include "switches.h"
+#include "assembly.h"
 
 char state = 0;
 
@@ -41,7 +42,10 @@ void state_advance()
   /*
     State 4 functions are found in file assembly.s
   */
-    
+
+  case 4:
+    dim_green_assembly();
+    break;
   /*
   case 4:
     // Restart the values for state 1

@@ -26,6 +26,7 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
   }
   else if(state == 4 && ++blink_count == 1) {
     //dim_green_assembly();
+    state_advance();
     blink_count = 0;
   }
   // Regular Blink Count
