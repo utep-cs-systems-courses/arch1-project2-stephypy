@@ -20,16 +20,58 @@ Implemented on a MSP430, the blinky buzzy toy _______________
 
 ### main
 
+**bobeep_main.c** <br>
+
+The program begins here.
+
 ### buzzer
+
+**buzzer.h** <br>
+**buzzer.c** <br>
+
+These files contain information about _____________
 
 ### led
 
+**led.h** <br>
+**led.c** <br>
+
+These files allow _________________
+
 ### switches
+
+**switches.h** <br>
+**switches.c** <br>
+
+Inside these files _____________
 
 ### state machines
 
+**stateMachines.h** <br>
+**stateMachines.c** <br>
+
+This project contains 4 states ______________
+
+### song
+
+**song.h** <br>
+**song.c** <br>
+
+These files contain the notes for the song and functions that allow the music
+to be played.
+
 ### assembly
+
+**assembly.h** <br>
+**assembly.s** <br>
+
+This project required at least one function to be implemented in assembly, so
+the code for state 4 is included here _________________
 
 ### p2 interrupt handler
 
+**p2_interrupt_handler.c** <br>
+
 ### wd interrupt handler
+
+**wdInterruptHandlder.c** <br>
