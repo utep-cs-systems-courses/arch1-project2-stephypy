@@ -17,3 +17,13 @@ Implemented on a MSP430, the blinky buzzy toy _______________
 - S3 Button will cycle _________________
 - S4 Button will display a green dimmed light
 # About the Files
+
+#### main
+
+#### buzzer
+
+#### led
+
+#### switches
+
+#### state machines
