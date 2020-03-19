@@ -11,31 +11,52 @@ void state_advance()
 {
   switch(state) {
   // State 1: Playing Bubblegum
-  case 1:
-    play_song();
-    break;
+  /*
+    State 1 functions are found in file song.c
+  */
     
   // State 2: Red Dim
   case 2:
+    // Restart the values for state 1
+    note_counter = 0;
+    curr_intro = 0;
+    curr_verse = 0;
+    curr_chorus = 0;
+
+    // Call the function corresponding to state 2
     dim_red(); 
     led_update();
     break;
 
   // State 3: Red Plus Green
   case 3:
+    // Restart the values for state 1
+    note_counter = 0;
+    curr_intro = 0;
+    curr_verse = 0;
+    curr_chorus = 0;
+
+    // Call the function corresponding to state 3
     red_plus_green();
     led_update();
     break;
 
   // State 4: Green Dim
   case 4:
+    // Restart the values for state 1
+    note_counter = 0;
+    curr_intro = 0;
+    curr_verse = 0;
+    curr_chorus = 0;
+
+    // Call the function corresponding to state 4
     dim_green();
     led_update();
     break;
   }
 }
 
-/* State 1 */
+/* State 1 
 void play_song()
 {
   // Play the song when selected
@@ -44,6 +65,7 @@ void play_song()
   }
   switch_state_changed = 0;
 }
+*/
 
 /* State 2 */
 void dim_red()
