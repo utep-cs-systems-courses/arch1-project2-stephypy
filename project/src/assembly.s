@@ -2,6 +2,7 @@
 	.p2align 1,0
 	.text
 
+	.globl dim_green_assembly
 dim_green_assembly:	
 	sub.w   #2, R1
 	mov.b   #0, 1(R1)
