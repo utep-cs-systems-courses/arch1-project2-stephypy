@@ -4,7 +4,7 @@
 #include "switches.h"
 
 int curr_verse = 0;
-int verse[] = {F, CS, F, CS, F, CS, F, CS, F, CS, F, CS, B5, A5, CS, 0, A5, CS, E5, D, E5, F, D5, B5, F, B5, F, B5, F, B5, F, A, F, A5, G5, 0};
+int verse[] = {F, CS, F, CS, F, CS, F, CS, F, CS, F, CS, B4, A4, CS, 0, A4, CS, E5, D, E5, F, D4, B4, F, B4, F, B4, F, B4, F, A, F, A4, G5, 0, F, D4, F, D4, E5, F, E5, F, E5, 0, D4, 0, CS, 0};
 
 char curr_state_one = 0;
 int note_counter = 0;
@@ -16,7 +16,7 @@ void song_advance() {
 
 void play_fallen_down() {
 
-if(note_counter == 36) {
+if(note_counter == 48) {
    buzzer_set_period(0);
 /* bug: can only play the song again after pressing another button */
 }

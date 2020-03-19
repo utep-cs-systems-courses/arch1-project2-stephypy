@@ -1,16 +1,16 @@
 #include <msp430.h>
 #include "buzzer.h"
 
-#define F 1351.37 //2702.74 // F#5
-#define CS 1911.13 //3607.7  // C#5
+#define F  2702.74 // F#4
+#define CS 3607.7  // C#4
 
-#define A 2146.16 // A#5
-#define A5 2272.72
-#define B5 2024.76
-#define D 3214.14 // D#5
-#define D5 3405.24
-#define E5 3033.75
-#define G5 2551.05
+#define A 4290.37  // A#4
+#define A4 4545.45 
+#define B4 4049.56 
+#define D 6428.18  // D#4
+#define D4 6810.6
+#define E5 6067.4 //3033.75
+#define G5 5102.04 //2551.05
 
 #define BEAT 68
 
