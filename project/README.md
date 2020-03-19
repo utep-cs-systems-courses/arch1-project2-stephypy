@@ -18,12 +18,18 @@ Implemented on a MSP430, the blinky buzzy toy _______________
 - S4 Button will display a green dimmed light
 # About the Files
 
-#### main
+### main
 
-#### buzzer
+### buzzer
 
-#### led
+### led
 
-#### switches
+### switches
 
-#### state machines
+### state machines
+
+### assembly
+
+### p2 interrupt handler
+
+### wd interrupt handler
