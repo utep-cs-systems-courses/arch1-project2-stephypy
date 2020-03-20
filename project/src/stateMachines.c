@@ -6,6 +6,7 @@
 #include "assembly.h"
 
 char state = 0;
+char curr_state_four;
 
 /* Activating selected state from switches.c */
 void state_advance()

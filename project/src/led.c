@@ -16,7 +16,7 @@ void led_init()
 
 // Update LEDs
 void led_update()
-{
+{ 
   char ledFlags = redVal[red_on] | greenVal[green_on];
   P1OUT &= (0xff^LEDS) | ledFlags; // clear bit for off leds
   P1OUT |= ledFlags;     // set bit for on leds

@@ -19,4 +19,6 @@ void red_plus_green(); // Series of lights as red->green->both on->both off->rep
 
 extern char state; // Keeps record of the state selected by pressing the corresponding button
 
+extern char curr_state_four;
+
 #endif // included
