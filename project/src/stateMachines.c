@@ -44,6 +44,10 @@ void state_advance()
   */
 
   case 4:
+    // Restart the values for state 1
+    note_counter = 0;
+    curr_verse = 0;
+    
     dim_green_assembly();
     break;
   /*
