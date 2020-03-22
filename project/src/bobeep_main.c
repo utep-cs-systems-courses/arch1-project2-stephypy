@@ -7,7 +7,6 @@
 void main(void) 
 {
   /* Voila my project bobeep!!!! */
-
   configureClocks();
 
   // Switch Setup
