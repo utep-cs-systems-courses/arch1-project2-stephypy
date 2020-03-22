@@ -12,9 +12,9 @@ char curr_state_four;
 void state_advance()
 {
   switch(state) {
-  // State 1: Playing Fallen Down
   /*
-    State 1 functions are found in file song.c
+    State 1: Playing Fallen Down
+    Functions are found in file song.c
   */
     
   // State 2: Red Dim
@@ -39,29 +39,15 @@ void state_advance()
     led_update();
     break;
 
-  // State 4: Green Dim
-  /*
-    State 4 functions are found in file assembly.s
-  */
-
-  case 4:
-    // Restart the values for state 1
-    note_counter = 0;
-    curr_verse = 0;
-    
-    dim_green_assembly();
-    break;
-  /*
+  // State 4: Red To Green Dim
   case 4:
     // Restart the values for state 1
     note_counter = 0;
     curr_verse = 0;
 
-    // Call the function corresponding to state 4
-    dim_green();
-    led_update();
+    // Calling the assembly function corresponding to state 4 (go to assembly.s)
+    red_green_assembly();
     break;
-  */
   }
 }
 
@@ -149,46 +135,6 @@ void red_plus_green()
   }
 }
 
-/* State 4 */
-/* C code for State 4; Go to assembly.s for state 4 code */
-/*
-void dim_green()
-{
-  // Set Start
-  static char curr_state_four = 0;
-
-  switch (curr_state_four) {
-  // Cases 0 - 3 will have both lights turned off  
-  case 0:
-   red_on = 0;
-   green_on = 0;
-   curr_state_four = 1; // Next
-   break;
-
-  case 1:
-   red_on = 0;
-   green_on = 0;
-   curr_state_four = 2; // Next
-   break;
-       
-  case 2:
-   red_on = 0;
-   green_on = 0;
-   curr_state_four = 3; // Next
-   break;
-   
-  case 3:
-   red_on = 0;
-   green_on = 0;
-   curr_state_four = 4; // Next
-   break;
-
-  // Turn on green light; blink count is at 1 so it will appear dimmed
-  case 4:
-   red_on = 0;
-   green_on = 1;
-   curr_state_four = 0; // Repeat
-   break;
-  }
-}
+/* State 4 
+** Found in file assembly.s
 */
