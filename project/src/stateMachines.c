@@ -20,7 +20,6 @@ void state_advance()
   // State 2: Red Dim
   case 2:
     // Restart the values for state 1
-    note_counter = 0;
     curr_verse = 0;
 
     // Call the function corresponding to state 2
@@ -31,7 +30,6 @@ void state_advance()
   // State 3: Red Plus Green
   case 3:
     // Restart the values for state 1
-    note_counter = 0;
     curr_verse = 0;
 
     // Call the function corresponding to state 3
