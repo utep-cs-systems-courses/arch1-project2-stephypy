@@ -56,7 +56,7 @@ switch_interrupt_handler()
    }
 
    /// STATE 4
-   if(sw4_state_down) {          /* SW4 = Dim Green */
+   if(sw4_state_down) {          /* SW4 = Red to Green Toggle Lights */
      state = 4;                  // Define state number
    }
 
