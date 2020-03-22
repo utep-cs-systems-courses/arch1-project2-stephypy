@@ -40,7 +40,6 @@ void state_advance()
   // State 4: Red To Green Dim
   case 4:
     // Restart the values for state 1
-    note_counter = 0;
     curr_verse = 0;
 
     // Calling the assembly function corresponding to state 4 (go to assembly.s)
