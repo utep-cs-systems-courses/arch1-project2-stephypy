@@ -6,12 +6,16 @@
 void
 __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
   static char blink_count = 0;
-
+  char beat = 68; // Represents the needed interrupts for an eigth note
+  
+  // Song Interrupts
   if(state == 1) {
-      if(curr_verse < 48 && ++blink_count == BEAT) {
+      // While the song isn't finished, have 68 interrupts/sec 
+      if(curr_verse < 48 && ++blink_count == beat) {
 	song_advance();
 	blink_count = 0;
       }
+      // Once song is over, play a quarter note
       else {
 	if(++blink_count == 136) {
 	  song_advance();
