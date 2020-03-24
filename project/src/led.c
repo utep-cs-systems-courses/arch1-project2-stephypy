@@ -3,7 +3,7 @@
 #include "switches.h"
 #include "stateMachines.h"
 
-unsigned char red_on = 0, green_on = 0;
+char red_on = 0, green_on = 0;
 static char redVal[] = {0, LED_RED}, greenVal[] = {0, LED_GREEN};
 
 // Initialize LEDs
