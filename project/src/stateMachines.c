@@ -6,44 +6,6 @@
 #include "assembly.h"
 
 char state = 0;
-char curr_state_four = 0;
-
-void fuck_you() {
-  // Set the start (must be static)
-  static char curr_state_three = 0;
-
-  // Get ready for a light show~
-  switch(curr_state_three) {
-
-  // Lit up the red light
-  case 0:
-    red_on = 1;
-    green_on = 0;
-    curr_state_three = 1; // Next
-    break;
-    
-  // Lit up green light
-  case 1:
-    red_on = 0;
-    green_on = 1;
-    curr_state_three = 2; // Next
-    break;
-
-  // Lit up both lights
-  case 2:
-    red_on = 1;
-    green_on = 1;
-    curr_state_three = 3; // Next
-    break;
-
-  // Turn off both lights and repeat
-  case 3:
-    red_on = 0;
-    green_on = 0;
-    curr_state_three = 0; // Repeat
-    break;
-  }
-}
 
 /* Activating selected state from switches.c */
 void state_advance()
