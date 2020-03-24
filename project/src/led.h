@@ -8,7 +8,7 @@
 #define LEDS (BIT0 | BIT6)
 
 // Determine whether the lights are lit or not
-extern char red_on, green_on;
+extern unsigned char red_on, green_on;
 
 // Initialize LEDs
 void led_init();
