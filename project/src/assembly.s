@@ -17,7 +17,8 @@ jt:
 	.text
 	.global red_green_assembly
 red_green_assembly:
-	cmp #2, &light
+	;; Range check does not work
+	cmp #3, &light
 	jnc default
 	
 	mov &light, r12
@@ -27,18 +28,18 @@ red_green_assembly:
 	;; switch statements
 green:
 	mov.b #0, &red_on
-	mov.b #1, &green_on
-	mov #0, &light
+	mov.b #1, &green_on 	; Turn on Green Light
+	mov #0, &light 		; Move to default 
 	jmp end
 	
 red:
-	mov.b #1, &red_on
+	mov.b #1, &red_on 	; Turn on Red Light
 	mov.b #0, &green_on
-	add #1, &light
+	add #1, &light 		; Move to Green State
 	jmp end
 
 default:
-	mov #1, &light
+	mov #1, &light 		; Restart light to be 1
 
 end:
-	pop r0
+	ret 			; pop r0
