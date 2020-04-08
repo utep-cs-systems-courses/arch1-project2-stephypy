@@ -1,9 +1,12 @@
 	.arch msp430g2553
+	.p2align 1, 0
 
-	.data 
+	;; Represents the state
+	.data
 light:
 	.word 1
 
+	;; Jump table
 	.text
 jt:
 	.word default 		; jt[0]
@@ -14,9 +17,11 @@ jt:
 	.text
 	.global red_green_assembly
 red_green_assembly:
-	;; why does it not work when i do the compare??
+	cmp #2, &light
+	jnc default
+	
 	mov &light, r12
-	add r12, r12 		; keep it even boi
+	add r12, r12 		
 	mov jt(r12), r0
 
 	;; switch statements
