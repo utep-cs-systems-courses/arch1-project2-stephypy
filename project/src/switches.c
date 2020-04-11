@@ -2,6 +2,7 @@
 #include "switches.h"
 #include "led.h"
 #include "stateAdvance_assembly.h"
+#include "song.h"
 
 int state = 0;
 char sw1_state_down, sw2_state_down, sw3_state_down, sw4_state_down;
@@ -43,6 +44,7 @@ switch_interrupt_handler()
    // STATE 1
    if(sw1_state_down) {          /* SW1 = Play Song */
      state = 1;                  // Define state number
+     curr_verse = 0;             // Restart values to begin
    }
 
    // STATE 2

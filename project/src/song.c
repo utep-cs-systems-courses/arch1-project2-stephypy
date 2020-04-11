@@ -30,7 +30,6 @@ void play_fallen_down() {
 // Reached end of the song
 if(curr_verse == 48) {
   buzzer_set_period(0); // Terminate
-/* bug: can only play the song again after pressing another button */
 }
 // Song Logic:
 else {
