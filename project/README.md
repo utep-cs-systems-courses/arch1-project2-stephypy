@@ -4,7 +4,9 @@ Author: Stephanie Galvan
 # Description:
 
 Implemented on a MSP430, the blinky buzzy toy creates sound and lights with
-the use of a state machine. 
+the use of a state machine. There are a total of four states that will
+accomplish the task with the addition of a default state that will serve as
+both a welcome and warning. 
 
 # How To Compile & Run It
 
@@ -20,6 +22,7 @@ To clean, you can access the 'src' folder and run 'make clean'
 
 # How To Use It
 
+- When the msp430 is first connected and run, it will play a short series of sounds as a welcome message.
 - S1 Button will play a fragment of the song "fallen down" from Undertale
 - S2 Button will display a red dimmed light
 - S3 Button will cycle between red light, green light, both red and green
@@ -69,16 +72,21 @@ should run. Each switch (button) represents a different state:
 - SW3 is state 3
 - SW4 is state 4
 
-Variable 'state' is initially defined as 0 because in state 0 nothing is happening.
+Variable 'state' is initially defined as 0 in order to play a short
+tone. State 0 or any number not within the range of 1-4 is considered the
+default state. The default state will play the series of notes as a welcome
+message at the beggining and as a warning message at any other point. This
+allows for debugging in the case of some faulty state transitions (at the
+moment states only transition from 1-2-3-4, but this is to make the program robust). 
 
 ### state machines
 
 **stateMachines.h** <br>
 **stateMachines.c** <br>
 
-This project contains a total of 4 states each represented by a switch. Each state
-has a different function. However, states 2-4 are called in ths file while
-state 1 is defined in the song files described below.
+This project contains a total of 4 states each represented by a switch plus a
+default state. Each state has a different function. However, states 2-4 are
+called in ths file while state 1 is defined in the song files described below.
 
 - State 2: When state 2 is selected, a dimmed red light is displayed. This is
   done by having 1 interrupt per second and toggling the red light as
@@ -91,8 +99,7 @@ state 1 is defined in the song files described below.
 - State 4: The implementation is found in the method called green_to_red() in
   which the LED lights will constantly go from green to red back and forth.
 
-Additionally, all the states mentioned above also reset the values for state 1
-(the song) and the state machine transitions are found in an assembly file
+The state machine transitions are found in an assembly file
 explained below.
 
 ### assembly
@@ -100,7 +107,30 @@ explained below.
 **stateAdvance_assembly.h** <br>
 **stateAdvance_assembly.s** <br>
 
-TO BE ADDED
+A jump table was implmented to allow the state transitions. A total of four
+states plus a default case were used. Each case call the appropiate method to
+accomplish its task. Although it was already explain above, the cases
+functions will be listed below:
+
+case 1:
+Will play a song (Fallen Down) found in song.c
+
+case 2:
+Will dim a red light; method found in stateMachines.c
+
+case 3:
+Will transition from red-green-both-off repeatedly; method found in stateMachines.c
+
+case 4:
+Will transition from green-red repeatedly; method found in stateMachines.c
+
+default:
+Will play a short series of notes; method found in song.c
+
+Note that the msp430 will ALWAYS run the default state first as a welcome
+message. If it plays the default case again while the msp430 is still
+connected and running, then the default case serves a warning for a
+bug. Currently, there has not been any other additional bugs related to state transitions.
 
 ### song
 
