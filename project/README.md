@@ -24,7 +24,7 @@ To clean, you can access the 'src' folder and run 'make clean'
 - S2 Button will display a red dimmed light
 - S3 Button will cycle between red light, green light, both red and green
 lights, and then off
-- S4 Button will cycle between red light and green light
+- S4 Button will cycle between green light and red light
 
 # About the Files
 
@@ -76,7 +76,7 @@ Variable 'state' is initially defined as 0 because in state 0 nothing is happeni
 **stateMachines.h** <br>
 **stateMachines.c** <br>
 
-This project contains a total of 4 states each represent by switch. Each state
+This project contains a total of 4 states each represented by a switch. Each state
 has a different function. However, states 2-4 are called in ths file while
 state 1 is defined in the song files described below.
 
@@ -88,12 +88,19 @@ state 1 is defined in the song files described below.
   to a green light, to both red and green light, and to off. The cycle is
   defined by having cases inside this method.
 
-- State 4: The implementation of state 4 is found in the assembly files;
-  however, in this stateMachines.c file the assembly function is being
-  called. Afterwards, the LEDs are updated.
+- State 4: The implementation is found in the method called green_to_red() in
+  which the LED lights will constantly go from green to red back and forth.
 
 Additionally, all the states mentioned above also reset the values for state 1
-(the song)
+(the song) and the state machine transitions are found in an assembly file
+explained below.
+
+### assembly
+
+**stateAdvance_assembly.h** <br>
+**stateAdvance_assembly.s** <br>
+
+TO BE ADDED
 
 ### song
 
@@ -104,17 +111,6 @@ These files contain the notes for the song and functions that allow the music
 to be played. The order of the notes are saved in an array and the machine is
 able to play each note successfully. The function buzzer_set_period(#) allows
 a sound to be made in which # represents a note (defined as a number).
-
-### assembly
-
-**assembly.h** <br>
-**assembly.s** <br>
-
-This project required at least one function to be implemented in assembly, so
-the code for state 4 is included here. The code checks whether the red light
-is on, and if the red light is on, then it will turn on the green light and
-turn off the red light. Otherwise, it will turn on the red light and turn off
-the green light.
 
 ### p2 interrupt handler
 
