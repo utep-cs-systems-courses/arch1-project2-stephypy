@@ -1,7 +1,7 @@
 #include <msp430.h>
 #include "song.h"
-#include "stateMachines.h"
 #include "switches.h"
+#include "led.h"
 
 // Current index of the note
 int curr_verse = 0;
@@ -14,8 +14,14 @@ char curr_state_one = 0;
 
 /* State 4 */
 void song_advance() {
- play_fallen_down();
- switch_state_changed = 0;
+  // Turn off the LED Lights
+  red_on = 0;
+  green_on = 0;
+  led_update();
+
+  // Play song
+  play_fallen_down();
+  switch_state_changed = 0;
 }
 
 /* Play a fragment of Fallen Down from Undertale */
@@ -42,4 +48,34 @@ else {
     break;
   }
  }
+}
+
+/* Warning */
+void warning() {
+  // This method would be called at the beginning as a welcome and any time the
+  // msp430 enters an invalid state (serves as a warning for debugging)
+  
+  static char warning_case = 0;
+
+  // Plays a series of notes
+  switch(warning_case) {
+  case 0:
+    buzzer_set_period(F);
+    warning_case = 1;
+    break;
+    
+  case 1:
+    buzzer_set_period(CS);
+    warning_case = 2;
+    break;
+
+  case 2:
+    buzzer_set_period(F);
+    warning_case = 3;
+    break;
+  
+  case 3:
+    buzzer_set_period(0); // End melody
+    break;
+  }
 }

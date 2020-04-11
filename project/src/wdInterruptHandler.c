@@ -1,7 +1,6 @@
 #include <msp430.h>
-#include "stateMachines.h"
 #include "song.h"
-#include "assembly.h"
+#include "stateAdvance_assembly.h"
 
 void
 __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
@@ -12,13 +11,13 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
   if(state == 1) {
       // While the song isn't finished, have 68 interrupts/sec 
       if(curr_verse < 48 && ++blink_count == beat) {
-	song_advance();
+	state_advance();
 	blink_count = 0;
       }
       // Once song is over, play a quarter note
       else {
 	if(++blink_count == 136) {
-	  song_advance();
+	  state_advance();
 	  blink_count = 0;
 	}
      }

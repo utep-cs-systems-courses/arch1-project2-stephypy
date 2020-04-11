@@ -1,9 +1,9 @@
 #include <msp430.h>
 #include "switches.h"
 #include "led.h"
-#include "stateMachines.h"
-#include "song.h"
+#include "stateAdvance_assembly.h"
 
+int state = 0;
 char sw1_state_down, sw2_state_down, sw3_state_down, sw4_state_down;
 char switch_state_changed; /* effectively boolean */
 

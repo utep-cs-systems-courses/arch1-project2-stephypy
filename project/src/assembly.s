@@ -40,6 +40,7 @@ red:
 
 default:
 	mov #1, &light 		; Restart light to be 1
+	jmp end
 
 end:
 	ret 			; pop r0

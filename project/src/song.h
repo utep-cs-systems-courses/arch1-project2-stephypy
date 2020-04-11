@@ -23,3 +23,6 @@ void song_advance();
 
 /* Plays Song */
 void play_fallen_down();
+
+/* Warning Tone */
+void warning();

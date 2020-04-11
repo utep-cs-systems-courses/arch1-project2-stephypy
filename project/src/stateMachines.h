@@ -2,7 +2,7 @@
 #define stateMachine_included
 
 /* Allows the selection of state */
-void state_advance();
+//void state_advance();
 
 /* State 1 */
 /* Found at song.c */
@@ -14,8 +14,8 @@ void dim_red(); // Shows a dim red light
 void red_plus_green(); // Series of lights as red->green->both on->both off->repeat
 
 /* State 4 */
-/* Found at assembly.s */
+void green_to_red(); // Goes from green to red backforth
 
-extern char state; // Keeps record of the state selected by pressing the corresponding button
+//extern char state; // Keeps record of the state selected by pressing the corresponding button
 
 #endif // included
